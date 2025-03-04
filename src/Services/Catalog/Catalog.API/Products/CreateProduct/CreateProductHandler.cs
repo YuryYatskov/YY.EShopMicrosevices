@@ -13,26 +13,21 @@ public class CreateProductCommandValidator : AbstractValidator<CreateProductComm
 {
     public CreateProductCommandValidator()
     {
-        RuleFor(x => x.Name).NotEmpty().WithMessage("Name is required");
-        RuleFor(x => x.Category).NotEmpty().WithMessage("Category is required");
-        RuleFor(x => x.ImageFile).NotEmpty().WithMessage("ImageFile is required");
-        RuleFor(x => x.Price).GreaterThan(  0).WithMessage("Price must be greater than 0");
+        RuleFor(x => x.Name).NotEmpty().WithMessage("Name is required.");
+        RuleFor(x => x.Category).NotEmpty().WithMessage("Category is required.");
+        RuleFor(x => x.ImageFile).NotEmpty().WithMessage("ImageFile is required.");
+        RuleFor(x => x.Price).GreaterThan(  0).WithMessage("Price must be greater than 0.");
     }
 }
 
-internal class CreateProductHandler(
+internal class CreateProductCommandHandler(
     IDocumentSession session,
-    IValidator<CreateProductCommand> validator)
+    ILogger<CreateProductCommandHandler> logger)
     : ICommandHandler<CreateProductCommand, CreateProductResault>
 {
     public async Task<CreateProductResault> Handle(CreateProductCommand command, CancellationToken cancellationToken)
     {
-        var result = await validator.ValidateAsync(command, cancellationToken);
-        var errors = result.Errors.Select(e => e.ErrorMessage).ToList();
-        if (errors.Count != 0)
-        {
-            throw new ValidationException(errors.FirstOrDefault());
-        }
+        logger.LogInformation("CreateProductCommandHandler.Handle called with {@Command}.", command);
 
         // Create product entity from command object.
         var product = new Product
