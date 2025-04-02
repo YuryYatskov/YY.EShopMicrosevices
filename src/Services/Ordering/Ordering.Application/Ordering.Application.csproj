@@ -11,4 +11,10 @@
     <ProjectReference Include="..\Ordering.Domain\Ordering.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Orders\" />
+  </ItemGroup>
+
 </Project>
