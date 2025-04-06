@@ -1,10 +1,4 @@
-﻿global using BuildingBlocks.CQRS;
-global using MediatR;
-global using Microsoft.Extensions.Logging;
-global using BuildingBlocks.Behaviors;
+﻿global using BuildingBlocks.Behaviors;
 global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
 global using System.Reflection;
-global using Ordering.Domain.Abstractions;
-global using Ordering.Domain.Enums;
-global using Ordering.Domain.ValueObjects;
