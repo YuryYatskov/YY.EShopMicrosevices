@@ -14,7 +14,14 @@
   <ItemGroup>
     <Folder Include="Extensions\" />
     <Folder Include="Exceptions\" />
-    <Folder Include="Orders\" />
+    <Folder Include="Orders\Commands\DeleteOrder\" />
+    <Folder Include="Orders\Commands\UpdateOrder\" />
+    <Folder Include="Orders\EventHandlers\" />
+    <Folder Include="Orders\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.14" />
   </ItemGroup>
 
 </Project>
